@@ -19,9 +19,12 @@ public class DBConnection {
    
    public Connection connection;
    
+   //singleton
+   public static DBConnection instance;
+   
    
    //constructor method
-   public DBConnection()
+   private DBConnection()
    {
        this.connection = null;
    }
@@ -50,5 +53,16 @@ public class DBConnection {
        } catch (SQLException e) {
            JOptionPane.showMessageDialog(null, e.getMessage());
        }
+   }
+   
+   
+   public synchronized static DBConnection getInstance()
+   {
+       if(instance == null)
+       {
+           instance = new DBConnection();
+       }
+       
+       return instance;
    }
 }
