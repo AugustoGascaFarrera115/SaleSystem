@@ -68,7 +68,7 @@ public class CategoryDAO implements SimpleCrudInterface<Category> {
         
         try {
             
-            ps = CONNECTION.connect().prepareStatement("INSERT INTO category (name,description,.active) VALUES (?,?,1)");
+            ps = CONNECTION.connect().prepareStatement("INSERT INTO category (name,description,active) VALUES (?,?,1)");
             ps.setString(1, object.getName());
             ps.setString(2, object.getDescription());
             
