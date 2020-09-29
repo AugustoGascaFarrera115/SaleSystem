@@ -5,6 +5,10 @@
  */
 package presentation;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.Locale;
+
 /**
  *
  * @author Felipe Gasca
@@ -29,7 +33,17 @@ public class MainFrm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        desktopPane = new javax.swing.JDesktopPane();
+        desktopPane = new javax.swing.JDesktopPane(){
+
+            @Override
+            protected void paintComponent(Graphics g)
+            {
+                super.paintComponents(g);
+                g.setColor(Color.white);
+                g.fillRect(0,0,getWidth(),getHeight());
+            }
+
+        };
         menuBar = new javax.swing.JMenuBar();
         mnuWarehouse = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -50,10 +64,16 @@ public class MainFrm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        mnuWarehouse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/almacen.png"))); // NOI18N
         mnuWarehouse.setText("Warehouse");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK));
         jMenuItem1.setText("Categories");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         mnuWarehouse.add(jMenuItem1);
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_DOWN_MASK));
@@ -62,6 +82,7 @@ public class MainFrm extends javax.swing.JFrame {
 
         menuBar.add(mnuWarehouse);
 
+        mnuShopping.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/compras.png"))); // NOI18N
         mnuShopping.setText("Shopping");
 
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_DOWN_MASK));
@@ -74,6 +95,7 @@ public class MainFrm extends javax.swing.JFrame {
 
         menuBar.add(mnuShopping);
 
+        mnuSales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/ventas.png"))); // NOI18N
         mnuSales.setText("Sales");
 
         jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.ALT_DOWN_MASK));
@@ -86,6 +108,7 @@ public class MainFrm extends javax.swing.JFrame {
 
         menuBar.add(mnuSales);
 
+        mnuAccess.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/acceso.png"))); // NOI18N
         mnuAccess.setText("Access");
 
         jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_DOWN_MASK));
@@ -98,6 +121,7 @@ public class MainFrm extends javax.swing.JFrame {
 
         menuBar.add(mnuAccess);
 
+        mnuChecks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/consultas.png"))); // NOI18N
         mnuChecks.setText("Checks");
 
         jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_DOWN_MASK));
@@ -110,6 +134,7 @@ public class MainFrm extends javax.swing.JFrame {
 
         menuBar.add(mnuChecks);
 
+        mnuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/salir.png"))); // NOI18N
         mnuExit.setText("Exit");
         menuBar.add(mnuExit);
 
@@ -119,15 +144,28 @@ public class MainFrm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+       
+        FrmCategory frm = new FrmCategory();
+        
+        desktopPane.add(frm);
+        frm.setVisible(true);
+        //frm.setBounds(0, 0, 1220, 700);
+        //frm.setLocale(Locale.UK);
+        frm.setLocation(20, 30);
+        
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
