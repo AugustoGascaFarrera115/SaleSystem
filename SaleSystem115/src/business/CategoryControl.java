@@ -74,7 +74,7 @@ public class CategoryControl {
             
             if(DATA.insert(OBJECT))
             {
-                return "INSERTED SUCCESFULLY";
+                return "OK";
             }else{
                 return "INSERTION FAILED";
             }
@@ -93,7 +93,7 @@ public class CategoryControl {
             
             if(DATA.update(OBJECT))
             {
-                return "UPDATED SUCCESFULLY";
+                return "OK";
             }else{
                 return "UPDATED FAILED";
             }
@@ -111,7 +111,7 @@ public class CategoryControl {
             
             if(DATA.update(OBJECT))
             {
-                return "UPDATED SUCCESFULLY";
+                return "OK";
             }else{
                 return "UPDATED FAILED";
             }

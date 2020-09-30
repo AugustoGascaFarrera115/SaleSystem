@@ -182,12 +182,12 @@ public class CategoryDAO implements SimpleCrudInterface<Category> {
  
         try {
             
-            ps = CONNECTION.connect().prepareStatement("SELECT COUNT(ID) FROM category");
+            ps = CONNECTION.connect().prepareStatement("SELECT COUNT(id) FROM category");
             rs = ps.executeQuery();
             
             while(rs.next())
             {
-                totalRegisters = rs.getInt("COUNT(1)");
+                totalRegisters = rs.getInt("COUNT(id)");
             }
           
             ps.close();
